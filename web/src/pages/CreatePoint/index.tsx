@@ -7,7 +7,7 @@ import api from '../../services/api';
 
 import './style.css';
 import logo from '../../assets/logo.svg'
-import { FiArrowLeft } from 'react-icons/fi'
+import { FiArrowLeft, FiCheckCircle, FiLoader } from 'react-icons/fi'
 
 interface Items{
   id: number
@@ -37,6 +37,7 @@ const CreatePoint = () => {
     whatsapp: ''
   })
   const [selectedItems, setSelectedItems] = useState<number[]>([]);
+  const [modalClass, setModalClass] = useState('success')
 
   const history = useHistory();
 
@@ -118,8 +119,15 @@ const CreatePoint = () => {
       items
     };
 
-    await api.post('points', data)
-    history.push('/');
+    const success = await api.post('points', data);
+
+    if(success.status === 200){
+      setModalClass('success show');
+
+      setTimeout(() => {
+        history.push('/');
+      }, 3500)
+    }
   }
 
 
@@ -224,6 +232,13 @@ const CreatePoint = () => {
 
         <button type="submit">Cadastrar ponto de coleta</button>
       </form>
+      <div className={modalClass}>
+        <div className="center">
+          <FiCheckCircle />
+          <span>Cadastro concluído!</span>
+          <FiLoader />
+        </div>
+      </div>
     </div>
   )
 }
