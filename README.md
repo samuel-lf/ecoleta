@@ -33,6 +33,8 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias:
 
 - [Node.js](https://nodejs.org/);
 - [NPM](https://www.npmjs.com/get-npm) ou [Yarn](https://classic.yarnpkg.com/pt-BR/docs/install/);
+- [Expo](https://expo.io/learn);
+
 
 
 1.  Faça um clone:
@@ -78,6 +80,23 @@ $ npm install
 
 # Inicie a aplicação web
 $ npm run start
+```
+
+4. Executando o client Mobile:
+
+```
+# Entre na pasta mobile/
+$ cd mobile/
+
+# Instale as dependências
+$ npm install
+
+# Inicie a aplicação mobile
+$ npm start
+
+# Baixe na loja do seu ceular o aplicativo EXPO
+
+# Leia o QRCode aberto no navegador
 ```
 
 <h5 align="center">
