@@ -1,10 +1,54 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import Constants from "expo-constants";
+import { Feather as Icon, FontAwesome } from "@expo/vector-icons";
+import { StyleSheet, View, TouchableOpacity, Text, Image } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { SvgUri } from 'react-native-svg'
+import { RectButton } from "react-native-gesture-handler";
 
 const Detail = () => {
+  const navigation = useNavigation();
+
+  function handleNavigateBack() {
+    navigation.goBack();
+  }
+
   return (
-    <View>
-    </View>
+    <>
+      <View style={styles.container}>
+        <TouchableOpacity onPress={ handleNavigateBack }>
+          <Icon name="arrow-left" color="#34CB79" size={20} />
+        </TouchableOpacity>
+        <Image style={styles.pointImage} source={{uri: 'https://images.unsplash.com/photo-1556767576-5ec41e3239ea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60'}}/>
+        <Text style={styles.pointName}>Mercado</Text>
+        <Text style={styles.pointItems}>Lampadas, oleo, etc</Text>
+        <View style={styles.address}>
+          <Text style={styles.addressTitle}>Endereço</Text>
+          <Text style={styles.addressContent}>Rua das palmeiras</Text>
+          <Text style={styles.addressContent}>São Paulo, SP</Text>
+        </View>
+      </View>
+      <View style={styles.footer}>
+        <RectButton
+          style={styles.button}
+          onPress={() => {}}
+        >
+          <Text>
+            <FontAwesome name="whatsapp" color="#FFF" size={20} />
+          </Text>
+          <Text style={styles.buttonText}>Whatsapp</Text>
+        </RectButton>
+        <RectButton
+          style={styles.button}
+          onPress={() => {}}
+        >
+          <Text>
+            <Icon name="mail" color="#FFF" size={20} />
+          </Text>
+          <Text style={styles.buttonText}>E-mail</Text>
+        </RectButton>
+      </View>
+    </>
   )
 }
 
@@ -14,7 +58,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 32,
-    paddingTop: 20,
+    paddingTop: 20 + Constants.statusBarHeight,
   },
 
   pointImage: {
@@ -34,16 +78,16 @@ const styles = StyleSheet.create({
 
   pointItems: {
     fontFamily: 'Roboto_400Regular',
-    fontSize: 16,
+    fontSize: 20,
     lineHeight: 24,
     marginTop: 8,
-    color: '#6C6C80'
+    color: '#34CB79'
   },
 
   address: {
     marginTop: 32,
   },
-  
+
   addressTitle: {
     color: '#322153',
     fontFamily: 'Roboto_500Medium',
@@ -65,7 +109,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between'
   },
-  
+
   button: {
     width: '48%',
     backgroundColor: '#34CB79',
