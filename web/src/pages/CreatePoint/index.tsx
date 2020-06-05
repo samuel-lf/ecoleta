@@ -8,6 +8,8 @@ import api from '../../services/api';
 import './style.css';
 import logo from '../../assets/logo.svg'
 import { FiArrowLeft, FiCheckCircle, FiLoader } from 'react-icons/fi'
+import Dropzone from '../../components/Dropzone/index';
+
 
 interface Items{
   id: number
@@ -143,6 +145,8 @@ const CreatePoint = () => {
 
       <form onSubmit={handleSubmit}>
         <h1>Cadastro do <br /> ponto de coleta</h1>
+
+        <Dropzone/>
 
         <fieldset>
           <legend>
