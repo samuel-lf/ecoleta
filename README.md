@@ -59,14 +59,8 @@ $ npm run knex:seed
 # Inicie a API
 $ npm run dev
 
-# Entre na pasta web/
-$ cd web/
-
-# Instale as dependências
-$ npm install
-
-# Inicie a aplicação web
-$ npm run start
+# dentro da pasta src/controllers/itemsController.ts
+Altere o IP do item image_url para o IP da sua máquina
 ```
 
 3. Executando o client Web:
@@ -97,6 +91,9 @@ $ npm start
 # Baixe na loja do seu ceular o aplicativo EXPO
 
 # Leia o QRCode aberto no navegador
+
+# dentro da pasta src/services/api.ts
+Altere o IP da base_url para o IP da sua máquina
 ```
 
 <h5 align="center">
